@@ -13,7 +13,7 @@ export function BottomNav() {
           variant="ghost"
           size="icon"
           onClick={() => navigate("/home")}
-          className="text-foreground"
+          className="text-foreground hover:text-primary transition-colors"
         >
           <Home className="h-5 w-5" />
         </Button>
@@ -21,7 +21,7 @@ export function BottomNav() {
           variant="ghost"
           size="icon"
           onClick={() => navigate("/profile")}
-          className="text-foreground"
+          className="text-foreground hover:text-primary transition-colors"
         >
           <User className="h-5 w-5" />
         </Button>
