@@ -14,18 +14,18 @@ export function GradientBackground({
   ...props
 }: GradientBackgroundProps) {
   const gradientStyles = {
-    "blue-yellow": "bg-gradient-to-br from-savemysoul-blue via-savemysoul-lightblue to-savemysoul-yellow",
-    "yellow-blue": "bg-gradient-to-br from-savemysoul-yellow via-savemysoul-lightyellow to-savemysoul-lightblue",
-    "blue": "bg-gradient-to-br from-savemysoul-blue to-savemysoul-lightblue",
-    "yellow": "bg-gradient-to-br from-savemysoul-yellow to-savemysoul-lightyellow",
-    "success": "bg-gradient-to-br from-savemysoul-blue to-green-500",
-    "failure": "bg-gradient-to-br from-savemysoul-blue to-red-500",
+    "blue-yellow": "bg-gradient-to-br from-primary via-primary/80 to-secondary dark:from-primary/80 dark:to-secondary/80",
+    "yellow-blue": "bg-gradient-to-br from-secondary via-secondary/80 to-primary dark:from-secondary/80 dark:to-primary/80",
+    "blue": "bg-gradient-to-br from-primary to-primary/80 dark:from-primary/90 dark:to-primary/70",
+    "yellow": "bg-gradient-to-br from-secondary to-secondary/80 dark:from-secondary/90 dark:to-secondary/70",
+    "success": "bg-gradient-to-br from-primary to-green-500 dark:from-primary/80 dark:to-green-600",
+    "failure": "bg-gradient-to-br from-primary to-red-500 dark:from-primary/80 dark:to-red-600",
   };
 
   return (
     <div
       className={cn(
-        "min-h-screen w-full flex flex-col",
+        "min-h-screen w-full flex flex-col transition-colors",
         gradientStyles[variant],
         className
       )}
