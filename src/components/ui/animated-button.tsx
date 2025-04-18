@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "primary" | "secondary" | "success" | "failure" | "outline" | "ghost";
+  variant?: "default" | "primary" | "secondary" | "success" | "failure" | "outline" | "ghost" | "blue" | "yellow";
   size?: "default" | "sm" | "lg" | "icon";
   animation?: "pulse" | "bounce" | "none";
   children: React.ReactNode;
@@ -26,6 +26,8 @@ export function AnimatedButton({
     failure: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
     ghost: "hover:bg-accent hover:text-accent-foreground",
+    blue: "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800",
+    yellow: "bg-amber-400 text-slate-900 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600",
   };
 
   const animationStyles = {
@@ -38,7 +40,7 @@ export function AnimatedButton({
     <Button
       className={cn(
         "rounded-full font-medium transition-all duration-200",
-        variantStyles[variant],
+        variantStyles[variant as keyof typeof variantStyles] || variantStyles.default,
         animationStyles[animation],
         className
       )}
