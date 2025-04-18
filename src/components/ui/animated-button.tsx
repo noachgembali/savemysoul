@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "blue" | "yellow" | "success" | "failure" | "outline" | "ghost";
+  variant?: "default" | "primary" | "secondary" | "success" | "failure" | "outline" | "ghost";
   size?: "default" | "sm" | "lg" | "icon";
   animation?: "pulse" | "bounce" | "none";
   children: React.ReactNode;
@@ -20,10 +20,10 @@ export function AnimatedButton({
 }: AnimatedButtonProps) {
   const variantStyles = {
     default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    blue: "bg-savemysoul-blue text-white hover:bg-savemysoul-lightblue",
-    yellow: "bg-savemysoul-yellow text-savemysoul-blue hover:bg-savemysoul-lightyellow",
-    success: "bg-savemysoul-success text-white hover:bg-green-600",
-    failure: "bg-savemysoul-failure text-white hover:bg-red-600",
+    primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+    secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90",
+    success: "bg-green-500 text-white hover:bg-green-600",
+    failure: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
     ghost: "hover:bg-accent hover:text-accent-foreground",
   };

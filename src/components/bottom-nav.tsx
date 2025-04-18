@@ -7,12 +7,13 @@ export function BottomNav() {
   const navigate = useNavigate();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 border-t bg-background px-4 py-2">
+    <nav className="fixed bottom-0 left-0 right-0 border-t border-border bg-background/80 backdrop-blur-md px-4 py-2 z-40 shadow-lg">
       <div className="flex items-center justify-around">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => navigate("/home")}
+          className="text-foreground"
         >
           <Home className="h-5 w-5" />
         </Button>
@@ -20,6 +21,7 @@ export function BottomNav() {
           variant="ghost"
           size="icon"
           onClick={() => navigate("/profile")}
+          className="text-foreground"
         >
           <User className="h-5 w-5" />
         </Button>

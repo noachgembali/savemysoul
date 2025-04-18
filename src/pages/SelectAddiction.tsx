@@ -5,6 +5,7 @@ import { GradientBackground } from "@/components/ui/gradient-background";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { AddictionCard } from "@/components/ui/addiction-card";
 import { Eye, Film, Gamepad, Clock, ChevronRight } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function SelectAddiction() {
   const navigate = useNavigate();
@@ -42,11 +43,12 @@ export default function SelectAddiction() {
   ];
 
   return (
-    <GradientBackground className="p-4">
+    <GradientBackground variant="primary" className="p-4">
+      <ThemeToggle />
       <div className="max-w-md mx-auto">
-        <div className="pt-8 pb-6">
-          <h1 className="text-3xl font-bold text-white">What's your struggle?</h1>
-          <p className="text-white/80 mt-2">Select the habit you want to break</p>
+        <div className="pt-12 pb-6">
+          <h1 className="text-3xl font-bold text-foreground">What's your struggle?</h1>
+          <p className="text-muted-foreground mt-2">Select the habit you want to break</p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 animate-slide-up">
@@ -65,10 +67,10 @@ export default function SelectAddiction() {
 
         <div className="mt-8 flex justify-end">
           <AnimatedButton
-            variant={selectedAddiction ? "yellow" : "ghost"}
+            variant={selectedAddiction ? "secondary" : "ghost"}
             disabled={!selectedAddiction}
             className={`${
-              selectedAddiction ? "text-savemysoul-blue" : "text-white/50"
+              selectedAddiction ? "" : "text-muted-foreground/50"
             } flex items-center gap-2`}
             onClick={() => navigate("/set-goal")}
           >
