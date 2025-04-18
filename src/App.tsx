@@ -3,7 +3,19 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Pages
 import Index from "./pages/Index";
+import Welcome from "./pages/Welcome";
+import Login from "./pages/Login";
+import SelectAddiction from "./pages/SelectAddiction";
+import SetGoal from "./pages/SetGoal";
+import LockScreen from "./pages/LockScreen";
+import Success from "./pages/Success";
+import Failure from "./pages/Failure";
+import Wallet from "./pages/Wallet";
+import Leaderboard from "./pages/Leaderboard";
+import Charity from "./pages/Charity";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -15,8 +27,17 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Welcome />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/select-addiction" element={<SelectAddiction />} />
+          <Route path="/set-goal" element={<SetGoal />} />
+          <Route path="/lock-screen" element={<LockScreen />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/failure" element={<Failure />} />
+          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/charity" element={<Charity />} />
+          <Route path="/home" element={<Index />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
