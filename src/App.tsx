@@ -1,4 +1,3 @@
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,7 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { BottomNav } from "@/components/bottom-nav";
 
 // Pages
-import Index from "./pages/Index";
+import Launch from "./pages/Launch";
 import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import CreateUsername from "./pages/CreateUsername";
@@ -33,7 +32,8 @@ const App = () => (
         <BrowserRouter>
           <div className="min-h-screen pb-16">
             <Routes>
-              <Route path="/" element={<Welcome />} />
+              <Route path="/" element={<Launch />} />
+              <Route path="/welcome" element={<Welcome />} />
               <Route path="/login" element={<Login />} />
               <Route path="/create-username" element={<CreateUsername />} />
               <Route path="/select-addiction" element={<SelectAddiction />} />
