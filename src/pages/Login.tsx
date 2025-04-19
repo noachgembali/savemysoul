@@ -7,17 +7,18 @@ import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Smartphone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Login() {
   const navigate = useNavigate();
 
   return (
-    <GradientBackground variant="blue" className="px-4">
+    <GradientBackground className="px-4">
+      <ThemeToggle />
       <div className="h-16 flex items-center">
         <Button 
           variant="ghost" 
           size="icon"
-          className="text-white" 
           onClick={() => navigate("/")}
         >
           <ArrowLeft className="h-6 w-6" />
@@ -27,8 +28,8 @@ export default function Login() {
       <div className="flex-1 flex flex-col items-center justify-center">
         <Card className="w-full max-w-md p-8 space-y-6 animate-fade-in">
           <div className="text-center space-y-2">
-            <h1 className="text-3xl font-bold text-savemysoul-blue">Welcome Back</h1>
-            <p className="text-gray-500">Sign in to access your journey</p>
+            <h1 className="text-3xl font-bold text-primary">Welcome Back</h1>
+            <p className="text-muted-foreground">Sign in to access your journey</p>
           </div>
           
           <div className="space-y-4">
@@ -57,7 +58,7 @@ export default function Login() {
             
             <div className="flex items-center gap-4">
               <Separator className="flex-1" />
-              <span className="text-xs text-gray-500 uppercase font-medium">Or</span>
+              <span className="text-xs text-muted-foreground uppercase font-medium">Or</span>
               <Separator className="flex-1" />
             </div>
             
@@ -71,8 +72,8 @@ export default function Login() {
             </AnimatedButton>
           </div>
           
-          <div className="text-center text-sm text-gray-500">
-            <p>By continuing, you agree to our <span className="text-savemysoul-blue font-medium">Terms of Service</span> and <span className="text-savemysoul-blue font-medium">Privacy Policy</span></p>
+          <div className="text-center text-sm text-muted-foreground">
+            <p>By continuing, you agree to our <span className="text-primary font-medium">Terms of Service</span> and <span className="text-primary font-medium">Privacy Policy</span></p>
           </div>
         </Card>
       </div>

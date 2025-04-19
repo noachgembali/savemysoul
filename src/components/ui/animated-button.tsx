@@ -26,8 +26,8 @@ export function AnimatedButton({
     failure: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
     ghost: "hover:bg-accent hover:text-accent-foreground",
-    blue: "bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800",
-    yellow: "bg-amber-400 text-slate-900 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600",
+    blue: "bg-primary text-primary-foreground hover:bg-primary/90",
+    yellow: "bg-secondary text-secondary-foreground hover:bg-secondary/90 dark:bg-primary dark:text-primary-foreground dark:hover:bg-primary/90",
   };
 
   const animationStyles = {

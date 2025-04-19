@@ -7,6 +7,7 @@ import { SliderWithLabel } from "@/components/ui/slider-with-label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, Timer, Coins, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function SetGoal() {
   const navigate = useNavigate();
@@ -23,11 +24,11 @@ export default function SetGoal() {
 
   return (
     <GradientBackground className="p-4">
+      <ThemeToggle />
       <div className="h-16 flex items-center">
         <Button 
           variant="ghost" 
           size="icon"
-          className="text-white" 
           onClick={() => navigate("/select-addiction")}
         >
           <ArrowLeft className="h-6 w-6" />
@@ -36,13 +37,13 @@ export default function SetGoal() {
 
       <div className="max-w-md mx-auto pb-6">
         <div className="pt-4 pb-6">
-          <h1 className="text-3xl font-bold text-white">Set your challenge</h1>
-          <p className="text-white/80 mt-2">Choose your time commitment and pledge amount</p>
+          <h1 className="text-3xl font-bold text-foreground">Set your challenge</h1>
+          <p className="text-muted-foreground mt-2">Choose your time commitment and pledge amount</p>
         </div>
 
         <Card className="mb-6 animate-fade-in">
           <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-savemysoul-blue">
+            <CardTitle className="flex items-center gap-2 text-primary">
               <Timer className="h-5 w-5" />
               Challenge Duration
             </CardTitle>
@@ -63,7 +64,7 @@ export default function SetGoal() {
 
         <Card className="mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <CardHeader className="pb-2">
-            <CardTitle className="flex items-center gap-2 text-savemysoul-blue">
+            <CardTitle className="flex items-center gap-2 text-primary">
               <Coins className="h-5 w-5" />
               Money Pledge
             </CardTitle>
@@ -82,10 +83,10 @@ export default function SetGoal() {
           </CardContent>
         </Card>
 
-        <Card className="mb-8 bg-savemysoul-blue text-white animate-fade-in" style={{ animationDelay: "0.4s" }}>
+        <Card className="mb-8 bg-primary text-primary-foreground animate-fade-in" style={{ animationDelay: "0.4s" }}>
           <CardContent className="p-4">
             <div className="flex items-start gap-4">
-              <ShieldCheck className="h-8 w-8 flex-shrink-0 text-savemysoul-yellow" />
+              <ShieldCheck className="h-8 w-8 flex-shrink-0" />
               <div>
                 <h3 className="font-bold mb-1">Your Commitment</h3>
                 <p className="text-sm opacity-90 mb-4">
@@ -110,7 +111,7 @@ export default function SetGoal() {
         <div className="flex justify-end">
           <AnimatedButton
             variant="yellow"
-            className="text-savemysoul-blue flex items-center gap-2 px-8 shadow-lg"
+            className="flex items-center gap-2 px-8 shadow-lg"
             onClick={() => navigate("/lock-screen")}
           >
             <span>Start Challenge</span>

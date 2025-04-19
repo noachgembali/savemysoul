@@ -6,6 +6,7 @@ import { AnimatedButton } from "@/components/ui/animated-button";
 import { CoinAnimation } from "@/components/ui/coin-animation";
 import { Trophy, Wallet, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Success() {
   const navigate = useNavigate();
@@ -22,34 +23,35 @@ export default function Success() {
   
   return (
     <GradientBackground variant="success" className="items-center justify-center text-center p-6">
+      <ThemeToggle />
       {showCoins && <CoinAnimation count={15} />}
       
       <div className="max-w-md animate-fade-in">
         <div className="flex flex-col items-center">
-          <div className="bg-white/20 p-6 rounded-full mb-6">
-            <Trophy className="h-20 w-20 text-savemysoul-yellow animate-float" />
+          <div className="bg-accent/30 p-6 rounded-full mb-6">
+            <Trophy className="h-20 w-20 text-accent-foreground animate-float" />
           </div>
           
-          <h1 className="text-4xl font-bold text-white mb-2">Challenge Complete!</h1>
-          <p className="text-xl text-white/80 mb-8">You've successfully broken your habit!</p>
+          <h1 className="text-4xl font-bold text-foreground mb-2">Challenge Complete!</h1>
+          <p className="text-xl text-muted-foreground mb-8">You've successfully broken your habit!</p>
           
-          <div className="bg-white rounded-lg p-6 mb-8 w-full">
-            <h3 className="text-savemysoul-blue text-lg font-bold mb-4">Your Achievement</h3>
+          <div className="bg-background rounded-lg p-6 mb-8 w-full">
+            <h3 className="text-primary text-lg font-bold mb-4">Your Achievement</h3>
             
             <div className="space-y-4">
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-gray-700">Challenge:</span>
+              <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                <span className="text-muted-foreground">Challenge:</span>
                 <span className="font-semibold">Adult Content</span>
               </div>
               
-              <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                <span className="text-gray-700">Duration:</span>
+              <div className="flex justify-between items-center p-3 bg-muted rounded-lg">
+                <span className="text-muted-foreground">Duration:</span>
                 <span className="font-semibold">3 days</span>
               </div>
               
-              <div className="flex justify-between items-center p-3 bg-savemysoul-yellow rounded-lg">
-                <span className="text-savemysoul-blue font-medium">Amount returned:</span>
-                <span className="text-savemysoul-blue font-bold">₹200</span>
+              <div className="flex justify-between items-center p-3 bg-secondary rounded-lg">
+                <span className="text-secondary-foreground font-medium">Amount returned:</span>
+                <span className="text-secondary-foreground font-bold">₹200</span>
               </div>
             </div>
           </div>
@@ -57,7 +59,7 @@ export default function Success() {
           <div className="flex flex-col space-y-4 w-full">
             <AnimatedButton 
               variant="yellow"
-              className="flex items-center justify-center gap-2 text-savemysoul-blue"
+              className="flex items-center justify-center gap-2"
               onClick={() => navigate("/wallet")}
             >
               <Wallet className="h-5 w-5" />
@@ -66,7 +68,7 @@ export default function Success() {
             
             <Button
               variant="outline"
-              className="text-white border-white"
+              className="border-border"
               onClick={() => navigate("/")}
             >
               <Home className="h-5 w-5 mr-2" />

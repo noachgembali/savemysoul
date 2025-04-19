@@ -1,7 +1,9 @@
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GradientBackground } from "@/components/ui/gradient-background";
 import { Shield, User, Wallet, Medal, Heart } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -40,10 +42,11 @@ const Index = () => {
   ];
   
   return (
-    <GradientBackground variant="blue-yellow">
+    <GradientBackground variant="primary">
+      <ThemeToggle />
       <div className="min-h-screen flex flex-col">
         {/* Header */}
-        <header className="text-white p-6">
+        <header className="text-foreground p-6">
           <h1 className="text-2xl font-bold flex items-center gap-2">
             <Shield className="h-6 w-6" />
             SaveMySoul
@@ -52,14 +55,14 @@ const Index = () => {
         
         {/* Main Content */}
         <div className="flex-1 p-4">
-          <div className="max-w-md mx-auto bg-white/20 backdrop-blur-sm rounded-xl p-6 text-white">
+          <div className="max-w-md mx-auto bg-accent/20 backdrop-blur-sm rounded-xl p-6 text-foreground">
             <h2 className="text-xl font-bold mb-4">Active Challenge</h2>
             
-            <div className="bg-white/20 rounded-lg p-4 text-center mb-4">
-              <p className="text-sm opacity-80">No active challenges</p>
+            <div className="bg-accent/30 rounded-lg p-4 text-center mb-4">
+              <p className="text-sm text-muted-foreground">No active challenges</p>
               <p className="mt-2 mb-4">Ready to break a habit?</p>
               <button 
-                className="bg-savemysoul-yellow text-savemysoul-blue px-6 py-2 rounded-full font-medium"
+                className="bg-secondary text-secondary-foreground px-6 py-2 rounded-full font-medium"
                 onClick={() => navigate('/select-addiction')}
               >
                 Start a Challenge
@@ -69,13 +72,13 @@ const Index = () => {
             <div className="mt-8">
               <h2 className="text-xl font-bold mb-4">Stats</h2>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/20 rounded-lg p-4 text-center">
+                <div className="bg-accent/30 rounded-lg p-4 text-center">
                   <p className="text-2xl font-bold">0</p>
-                  <p className="text-sm opacity-80">Completed</p>
+                  <p className="text-sm text-muted-foreground">Completed</p>
                 </div>
-                <div className="bg-white/20 rounded-lg p-4 text-center">
+                <div className="bg-accent/30 rounded-lg p-4 text-center">
                   <p className="text-2xl font-bold">₹0</p>
-                  <p className="text-sm opacity-80">Saved</p>
+                  <p className="text-sm text-muted-foreground">Saved</p>
                 </div>
               </div>
             </div>
@@ -83,11 +86,11 @@ const Index = () => {
         </div>
         
         {/* Bottom Navigation */}
-        <nav className="bg-white rounded-t-xl p-2 grid grid-cols-5">
+        <nav className="bg-background rounded-t-xl p-2 grid grid-cols-5">
           {menuItems.map((item) => (
             <button 
               key={item.id}
-              className="flex flex-col items-center justify-center py-2 px-1 text-savemysoul-blue hover:bg-savemysoul-gray rounded-lg transition-colors"
+              className="flex flex-col items-center justify-center py-2 px-1 text-primary hover:bg-accent rounded-lg transition-colors"
               onClick={item.onClick}
             >
               {item.icon}
