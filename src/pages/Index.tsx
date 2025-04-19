@@ -84,20 +84,6 @@ const Index = () => {
             </div>
           </div>
         </div>
-        
-        {/* Bottom Navigation */}
-        <nav className="bg-background rounded-t-xl p-2 grid grid-cols-5">
-          {menuItems.map((item) => (
-            <button 
-              key={item.id}
-              className="flex flex-col items-center justify-center py-2 px-1 text-primary hover:bg-accent rounded-lg transition-colors"
-              onClick={item.onClick}
-            >
-              {item.icon}
-              <span className="text-xs mt-1">{item.label}</span>
-            </button>
-          ))}
-        </nav>
       </div>
     </GradientBackground>
   );

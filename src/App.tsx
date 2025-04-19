@@ -1,3 +1,4 @@
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -20,6 +21,7 @@ import Wallet from "./pages/Wallet";
 import Leaderboard from "./pages/Leaderboard";
 import Charity from "./pages/Charity";
 import NotFound from "./pages/NotFound";
+import Index from "./pages/Index";
 
 const queryClient = new QueryClient();
 

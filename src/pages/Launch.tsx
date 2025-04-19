@@ -9,7 +9,7 @@ const Launch = () => {
   useEffect(() => {
     // Automatically navigate to Welcome page after animation
     const timer = setTimeout(() => {
-      navigate('/');
+      navigate('/welcome');
     }, 2000);
 
     return () => clearTimeout(timer);
