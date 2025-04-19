@@ -12,6 +12,12 @@ import { ThemeToggle } from "@/components/theme-toggle";
 export default function Login() {
   const navigate = useNavigate();
 
+  const handleLogin = () => {
+    // In a real app, this would perform actual authentication
+    // For now, we'll just redirect to the username creation page
+    navigate("/create-username");
+  };
+
   return (
     <GradientBackground className="px-4">
       <ThemeToggle />
@@ -36,7 +42,7 @@ export default function Login() {
             <AnimatedButton 
               variant="blue"
               className="w-full flex items-center justify-center gap-2 py-6"
-              onClick={() => navigate("/select-addiction")}
+              onClick={handleLogin}
             >
               <Smartphone className="w-5 h-5" />
               <span>Continue with Phone</span>
@@ -45,7 +51,7 @@ export default function Login() {
             <AnimatedButton 
               variant="outline"
               className="w-full flex items-center justify-center gap-2 py-6"
-              onClick={() => navigate("/select-addiction")}
+              onClick={handleLogin}
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -65,7 +71,7 @@ export default function Login() {
             <AnimatedButton 
               variant="outline"
               className="w-full flex items-center justify-center gap-2 py-6"
-              onClick={() => navigate("/select-addiction")}
+              onClick={handleLogin}
             >
               <Mail className="w-5 h-5" />
               <span>Continue with Email</span>

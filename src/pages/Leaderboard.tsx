@@ -1,16 +1,21 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GradientBackground } from "@/components/ui/gradient-background";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AvatarWithStatus } from "@/components/ui/avatar-with-status";
-import { ArrowLeft, Medal, Users } from "lucide-react";
+import { ArrowLeft, Medal, Users, UserPlus, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { FriendSearch } from "@/components/ui/friend-search";
+import { FriendRequests } from "@/components/ui/friend-requests";
+import { Badge } from "@/components/ui/badge";
 
 export default function Leaderboard() {
   const navigate = useNavigate();
+  const [requestCount] = useState(2); // In a real app, this would come from your backend
 
   const friends = [
     { id: 1, name: "Raj Kumar", image: "", status: "completed" as const, score: 1200, position: 1 },
@@ -23,15 +28,51 @@ export default function Leaderboard() {
   return (
     <GradientBackground className="p-4">
       <ThemeToggle />
-      <div className="h-16 flex items-center">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => navigate("/")}
-        >
-          <ArrowLeft className="h-6 w-6" />
-        </Button>
-        <h1 className="text-xl font-bold text-foreground ml-2">Leaderboard</h1>
+      <div className="h-16 flex items-center justify-between">
+        <div className="flex items-center">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => navigate("/")}
+          >
+            <ArrowLeft className="h-6 w-6" />
+          </Button>
+          <h1 className="text-xl font-bold text-foreground ml-2">Leaderboard</h1>
+        </div>
+        <div className="flex gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="icon" className="relative">
+                <Bell className="h-5 w-5" />
+                {requestCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {requestCount}
+                  </span>
+                )}
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Friend Requests</DialogTitle>
+              </DialogHeader>
+              <FriendRequests />
+            </DialogContent>
+          </Dialog>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="icon">
+                <UserPlus className="h-5 w-5" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Add Friends</DialogTitle>
+              </DialogHeader>
+              <FriendSearch />
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
 
       <div className="max-w-md mx-auto pb-20">
