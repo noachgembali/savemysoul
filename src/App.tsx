@@ -22,6 +22,7 @@ import Leaderboard from "./pages/Leaderboard";
 import Charity from "./pages/Charity";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
+import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const App = () => (
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/charity" element={<Charity />} />
               <Route path="/home" element={<Index />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNav />
