@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GradientBackground } from "@/components/ui/gradient-background";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { AddictionCard } from "@/components/ui/addiction-card";
-import { Eye, Film, Gamepad, Clock, ChevronRight } from "lucide-react";
+import { Eye, Film, Gamepad, Clock, ChevronRight, Shield } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function SelectAddiction() {
@@ -15,9 +14,10 @@ export default function SelectAddiction() {
     {
       id: "adult-content",
       title: "Adult Content",
-      description: "Block access to adult websites and content",
+      description: "AI-powered blocking of inappropriate content",
       icon: <Eye />,
-      stats: "80% success rate"
+      stats: "80% success rate",
+      badge: "AI Protected"
     },
     {
       id: "reels",
@@ -61,6 +61,7 @@ export default function SelectAddiction() {
               stats={addiction.stats}
               selected={selectedAddiction === addiction.id}
               onSelect={() => setSelectedAddiction(addiction.id)}
+              badge={addiction.badge}
             />
           ))}
         </div>
