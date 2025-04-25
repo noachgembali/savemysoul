@@ -10,6 +10,7 @@ interface AddictionCardProps extends React.HTMLAttributes<HTMLDivElement> {
   icon: React.ReactNode;
   selected?: boolean;
   stats?: string;
+  badge?: string;
   onSelect?: () => void;
 }
 
@@ -19,6 +20,7 @@ export function AddictionCard({
   icon,
   selected = false,
   stats,
+  badge,
   onSelect,
   className,
   ...props
@@ -39,6 +41,7 @@ export function AddictionCard({
         <div className="flex items-center justify-between">
           <div className="text-3xl">{icon}</div>
           {selected && <Badge className="bg-secondary text-secondary-foreground font-medium">Selected</Badge>}
+          {!selected && badge && <Badge variant="outline" className="font-medium">{badge}</Badge>}
         </div>
       </CardHeader>
       <CardContent>
