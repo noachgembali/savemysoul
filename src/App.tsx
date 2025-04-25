@@ -1,6 +1,5 @@
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -25,6 +24,17 @@ import Index from "./pages/Index";
 import Profile from "./pages/Profile";
 
 const queryClient = new QueryClient();
+
+const BottomNavWrapper = () => {
+  const location = useLocation();
+  const publicRoutes = ['/', '/welcome', '/login', '/create-username'];
+  
+  if (publicRoutes.includes(location.pathname)) {
+    return null;
+  }
+  
+  return <BottomNav />;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -51,7 +61,7 @@ const App = () => (
               <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
-            <BottomNav />
+            <BottomNavWrapper />
           </div>
         </BrowserRouter>
       </TooltipProvider>
