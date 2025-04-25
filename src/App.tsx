@@ -22,6 +22,7 @@ import Charity from "./pages/Charity";
 import NotFound from "./pages/NotFound";
 import Index from "./pages/Index";
 import Profile from "./pages/Profile";
+import TestNSFW from "./pages/TestNSFW";
 
 const queryClient = new QueryClient();
 
@@ -59,6 +60,7 @@ const App = () => (
               <Route path="/charity" element={<Charity />} />
               <Route path="/home" element={<Index />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/test-nsfw" element={<TestNSFW />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <BottomNavWrapper />
