@@ -1,34 +1,15 @@
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { GradientBackground } from "@/components/ui/gradient-background";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { Shield, ArrowRight, Lock } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { supabase } from "@/integrations/supabase/client";
-import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Welcome() {
   const navigate = useNavigate();
-  const { toast } = useToast();
-
-  const handleSignInWithGoogle = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: `${window.location.origin}/create-username`
-        }
-      });
-      
-      if (error) throw error;
-    } catch (error) {
-      toast({
-        title: "Authentication Error",
-        description: "Failed to sign in with Google. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
+  const { signInWithGoogle } = useAuth();
 
   return (
     <GradientBackground variant="primary" className="items-center justify-center px-4">
@@ -80,7 +61,7 @@ export default function Welcome() {
           animation="pulse"
           size="lg"
           className="rounded-full w-56 text-lg font-semibold shadow-lg flex items-center justify-center space-x-2"
-          onClick={handleSignInWithGoogle}
+          onClick={signInWithGoogle}
         >
           <svg viewBox="0 0 24 24" className="w-5 h-5" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
