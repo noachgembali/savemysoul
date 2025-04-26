@@ -1,3 +1,4 @@
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -6,6 +7,24 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BottomNav } from "@/components/bottom-nav";
 import { AuthProvider } from "@/contexts/AuthContext";
+
+// Import all page components
+import Launch from "@/pages/Launch";
+import Welcome from "@/pages/Welcome";
+import Login from "@/pages/Login";
+import CreateUsername from "@/pages/CreateUsername";
+import SelectAddiction from "@/pages/SelectAddiction";
+import SetGoal from "@/pages/SetGoal";
+import LockScreen from "@/pages/LockScreen";
+import Success from "@/pages/Success";
+import Failure from "@/pages/Failure";
+import Wallet from "@/pages/Wallet";
+import Leaderboard from "@/pages/Leaderboard";
+import Charity from "@/pages/Charity";
+import Index from "@/pages/Index";
+import Profile from "@/pages/Profile";
+import TestNSFW from "@/pages/TestNSFW";
+import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
 
