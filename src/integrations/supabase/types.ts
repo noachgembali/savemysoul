@@ -9,7 +9,131 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      challenges: {
+        Row: {
+          addiction_type: string
+          created_at: string | null
+          duration_days: number
+          end_date: string | null
+          id: string
+          pledge_amount: number
+          start_date: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          addiction_type: string
+          created_at?: string | null
+          duration_days: number
+          end_date?: string | null
+          id?: string
+          pledge_amount: number
+          start_date?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          addiction_type?: string
+          created_at?: string | null
+          duration_days?: number
+          end_date?: string | null
+          id?: string
+          pledge_amount?: number
+          start_date?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "challenges_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          addiction_type: string | null
+          avatar_url: string | null
+          created_at: string | null
+          current_challenge_id: string | null
+          full_name: string | null
+          id: string
+          total_challenges_completed: number | null
+          total_saved: number | null
+          username: string
+        }
+        Insert: {
+          addiction_type?: string | null
+          avatar_url?: string | null
+          created_at?: string | null
+          current_challenge_id?: string | null
+          full_name?: string | null
+          id: string
+          total_challenges_completed?: number | null
+          total_saved?: number | null
+          username: string
+        }
+        Update: {
+          addiction_type?: string | null
+          avatar_url?: string | null
+          created_at?: string | null
+          current_challenge_id?: string | null
+          full_name?: string | null
+          id?: string
+          total_challenges_completed?: number | null
+          total_saved?: number | null
+          username?: string
+        }
+        Relationships: []
+      }
+      transactions: {
+        Row: {
+          amount: number
+          challenge_id: string | null
+          created_at: string | null
+          id: string
+          status: string | null
+          type: string
+          user_id: string | null
+        }
+        Insert: {
+          amount: number
+          challenge_id?: string | null
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          type: string
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number
+          challenge_id?: string | null
+          created_at?: string | null
+          id?: string
+          status?: string | null
+          type?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transactions_challenge_id_fkey"
+            columns: ["challenge_id"]
+            isOneToOne: false
+            referencedRelation: "challenges"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "transactions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
